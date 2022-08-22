@@ -2,25 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Stack, Avatar } from "@mui/material";
 import AppLogo from "./AppLogo";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Navbar = () => (
   <Stack
     direction="row"
-    justifyContent="space-around"
+    justifyContent="space-between"
     sx={{
-      gap: { sm: "100px", xs: "50px" },
-      mt: { sm: "30px", xs: "20px" },
-      justifyContent: "none",
+      m: { lg: "40px", sm: "30px", xs: "20px" },
     }}
   >
-    <Link to="/" gap="40px">
+    <Link to="/">
       <Avatar />
     </Link>
-    <Link to="/" gap="40px" style={{ textDecoration: "none" }}>
+    <Link to="/" style={{ textDecoration: "none" }}>
       <AppLogo />
     </Link>
-    <Link to="/" gap="40px">
-      Menu
+    <Link to="/directory">
+      <MenuIcon fontSize="large" />
     </Link>
   </Stack>
 );
