@@ -1,38 +1,65 @@
 import React from "react";
-import { Container, Box, Stack, Typography, Button } from "@mui/material";
-import { purple } from "@mui/material/colors";
+import { Container, Box, Stack, Typography, Button, Chip } from "@mui/material";
+import { purple, grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[200]),
   paddingTop: "16px",
   paddingBottom: "16px",
   borderRadius: "16px",
-  backgroundColor: purple[200],
+  backgroundColor: "white",
+  textTransform: "none",
   "&:hover": {
-    backgroundColor: purple[300],
+    backgroundColor: grey[100],
   },
 }));
+
+const StyledBox = styled(Box)({
+  backgroundColor: "#dfdfdf",
+  height: "100vh",
+  borderRadius: "42px",
+  padding: "50px",
+});
 
 const Directory = () => {
   return (
     <React.Fragment>
       <Container maxWidth="md">
-        <Box
-          sx={{
-            bgcolor: "#dfdfdf",
-            height: "100vh",
-            borderRadius: "42px",
-            padding: "50px",
-          }}
-        >
-          <Typography variant="h5">Kitchen</Typography>
-          <Stack spacing={2}>
-            <ColorButton variant="contained">Custom CSS</ColorButton>
-            <ColorButton variant="contained">Custom CSS</ColorButton>
-            <ColorButton variant="contained">Custom CSS</ColorButton>
+        <StyledBox>
+          <Typography
+            sx={{
+              mb: "20px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+            variant="h4"
+          >
+            Kitchen
+            <ColorButton variant="contained">Add +</ColorButton>
+          </Typography>
+
+          <Stack spacing={3}>
+            <ColorButton
+              sx={{ justifyContent: "space-between" }}
+              variant="contained"
+            >
+              Cleaning the Fridge
+              <Chip label="weekly" variant="contained" />
+              <MoreVertIcon />
+            </ColorButton>
+            <ColorButton
+              sx={{ justifyContent: "space-between" }}
+              variant="contained"
+            >
+              Cleaning the Fridge
+              <Chip label="weekly" variant="contained" />
+              <MoreVertIcon />
+            </ColorButton>
           </Stack>
-        </Box>
+        </StyledBox>
       </Container>
     </React.Fragment>
   );
