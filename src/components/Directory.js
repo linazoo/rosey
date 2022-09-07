@@ -14,7 +14,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import GlobalContext from "../contexts/global";
 import InputDetail from "./InputDetail";
 
-const ColorButton = styled(Button)(({ theme }) => ({
+export const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[200]),
   paddingTop: "16px",
   paddingBottom: "16px",
