@@ -8,6 +8,7 @@ import { GlobalProvider } from "./contexts/global";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Directory from "./components/Directory";
+import EditDetail from "./components/EditDetail";
 
 const data = {
   loading: false,
@@ -44,6 +45,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/directory" element={<Directory />} />
+          <Route path="/edit" element={<EditDetail />} />
         </Routes>
       </Box>
     </GlobalProvider>

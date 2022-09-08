@@ -2,7 +2,6 @@ import React from "react";
 import { ColorButton } from "./Directory";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import "./inputDetailStyles.css";
 import { Box } from "@mui/material";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
@@ -15,12 +14,12 @@ const InputDetail = () => {
   };
 
   return (
-    <Container sx={{ display: "flex", flexDirection: "column" }}>
+    <Container sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
       <TextField
         id="standard-textarea"
         label="Title"
         multiline
-        variant="standard"
+        variant="outlined"
       />
       <TextField
         id="standard-multiline-static"
@@ -28,20 +27,22 @@ const InputDetail = () => {
         multiline
         rows={4}
         defaultValue=""
-        variant="standard"
+        variant="outlined"
       />
-      <Box sx={{ width: "100%" }}>
-        <Tabs
-          onChange={handleChange}
-          value={value}
-          aria-label="Tabs where each tab needs to be selected manually"
-        >
-          <Tab label="daily" />
-          <Tab label="weekly" />
-          <Tab label="monthly" />
-          <Tab label="yearly" />
-        </Tabs>
-      </Box>
+
+      <Tabs
+        centered
+        variant="fullWidth"
+        onChange={handleChange}
+        value={value}
+        aria-label="Tabs where each tab needs to be selected manually"
+      >
+        <Tab label="daily" />
+        <Tab label="weekly" />
+        <Tab label="monthly" />
+        <Tab label="yearly" />
+      </Tabs>
+
       <ColorButton variant="contained" sx={{ width: "100%", mt: "20px" }}>
         Confirm
       </ColorButton>

@@ -13,6 +13,7 @@ import { styled } from "@mui/material/styles";
 import EditIcon from "@mui/icons-material/Edit";
 import GlobalContext from "../contexts/global";
 import InputDetail from "./InputDetail";
+import EditDetail from "./EditDetail";
 
 export const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[200]),
@@ -26,14 +27,14 @@ export const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const StyledBox = styled(Box)({
+export const StyledBox = styled(Box)({
   backgroundColor: "#dfdfdf",
   height: "100vh",
   borderRadius: "42px",
   padding: "50px",
 });
 
-const kitchenChores = [
+export const kitchenChores = [
   {
     title: "Cleaning the fridge",
     frequency: "weekly",
@@ -44,10 +45,12 @@ const kitchenChores = [
   },
 ];
 
-const Directory = () => {
+export const Directory = () => {
   const { state } = useContext(GlobalContext);
   const { categories, loading } = state;
   const [showInputDetail, setShowInputDetail] = React.useState(false);
+  const [editInput, setEditInput] = React.useState(false);
+
   return (
     <React.Fragment>
       {loading ? (
@@ -85,7 +88,7 @@ const Directory = () => {
                             sx={{ mr: 2 }}
                           />
                           <IconButton>
-                            <EditIcon />
+                            <EditIcon onClick={() => setEditInput(true)} />
                           </IconButton>
                         </Box>
                       </ColorButton>
