@@ -5,6 +5,8 @@ import Tab from "@mui/material/Tab";
 import { Box } from "@mui/material";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
+import { StyledBox } from "./commonStyles";
+import { Stack } from "@mui/system";
 
 const InputDetail = () => {
   const [value, setValue] = React.useState(false);
@@ -14,39 +16,41 @@ const InputDetail = () => {
   };
 
   return (
-    <Container sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <TextField
-        id="standard-textarea"
-        label="Title"
-        multiline
-        variant="outlined"
-      />
-      <TextField
-        id="standard-multiline-static"
-        label="Description"
-        multiline
-        rows={4}
-        defaultValue=""
-        variant="outlined"
-      />
+    <StyledBox>
+      <Stack sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <TextField
+          id="standard-textarea"
+          label="Title"
+          multiline
+          variant="outlined"
+        />
+        <TextField
+          id="standard-multiline-static"
+          label="Description"
+          multiline
+          rows={4}
+          defaultValue=""
+          variant="outlined"
+        />
 
-      <Tabs
-        centered
-        variant="fullWidth"
-        onChange={handleChange}
-        value={value}
-        aria-label="Tabs where each tab needs to be selected manually"
-      >
-        <Tab label="daily" />
-        <Tab label="weekly" />
-        <Tab label="monthly" />
-        <Tab label="yearly" />
-      </Tabs>
+        <Tabs
+          centered
+          variant="fullWidth"
+          onChange={handleChange}
+          value={value}
+          aria-label="Tabs where each tab needs to be selected manually"
+        >
+          <Tab label="daily" />
+          <Tab label="weekly" />
+          <Tab label="monthly" />
+          <Tab label="yearly" />
+        </Tabs>
 
-      <ColorButton variant="contained" sx={{ width: "100%", mt: "20px" }}>
-        Confirm
-      </ColorButton>
-    </Container>
+        <ColorButton variant="contained" sx={{ width: "100%", mt: "20px" }}>
+          Confirm
+        </ColorButton>
+      </Stack>
+    </StyledBox>
   );
 };
 

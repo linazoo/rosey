@@ -33,19 +33,6 @@ export const StyledBox = styled(Box)({
   padding: "50px",
 });
 
-export const kitchenChores = [
-  {
-    title: "Kitchen",
-    frequency: "weekly",
-    description: "info about all that is kitchen stuff",
-  },
-  {
-    title: "Garden",
-    frequency: "daily",
-    description: "info about all that is kitchen stuff",
-  },
-];
-
 export const Directory = () => {
   const { state } = useContext(GlobalContext);
   const { categories, loading } = state;
@@ -54,7 +41,7 @@ export const Directory = () => {
 
   return (
     <React.Fragment>
-      <Container maxWidth="md">
+      {/* <Container maxWidth="md">
         <StyledBox>
           <Typography
             sx={{
@@ -103,7 +90,7 @@ export const Directory = () => {
             </>
           )}
         </StyledBox>
-      </Container>
+      </Container> */}
     </React.Fragment>
   );
 };

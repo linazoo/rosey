@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 // import InputDetail from "./InputDetail";
+import { StyledBox } from "./commonStyles";
 
 import {
   Container,
@@ -28,38 +29,31 @@ export const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export const StyledBox = styled(Box)({
-  backgroundColor: "#dfdfdf",
-  height: "100vh",
-  borderRadius: "32px",
-  padding: "50px",
-});
+interface Item {
+  title: string;
+  frequency?: string;
+  description: string;
+}
 
-export const categoriesList = [
-  {
-    title: "Kitchen",
-    frequency: "weekly",
-    description: "info about all that is kitchen stuff",
-  },
-  {
-    title: "Garden",
-    frequency: "daily",
-    description: "info about all that is kitchen stuff",
-  },
-];
+// interface Task {
+//   title: string;
+//   description: string;
+// }
 
-const ListOfItems = () => {
-  const { state } = useContext(GlobalContext);
-  const { categories, loading } = state;
-  const [showInputDetail, setShowInputDetail] = React.useState(false);
-  const [editInput, setEditInput] = React.useState(false);
+interface ListOfItemsProps {
+  items: Array<Item>;
+}
+
+const ListOfItems = ({ items }: ListOfItemsProps) => {
+  // const [showInputDetail, setShowInputDetail] = React.useState(false);
+  // const [editInput, setEditInput] = React.useState(false);
 
   return (
     <Container maxWidth="md">
       <StyledBox>
         <>
           <Stack spacing={3}>
-            {categoriesList.map((item) => {
+            {items.map((item) => {
               return (
                 <ColorButton
                   sx={{ justifyContent: "space-between" }}
@@ -70,20 +64,19 @@ const ListOfItems = () => {
                     <p>{item.description}</p>
                   </div>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
-                    <Chip label={item.frequency} sx={{ mr: 2 }} />
+                    {item.frequency ? (
+                      <Chip label={item.frequency} sx={{ mr: 2 }} />
+                    ) : null}
+
                     <IconButton>
-                      <EditIcon onClick={() => setEditInput(true)} />
+                      <EditIcon />
                     </IconButton>
                   </Box>
                 </ColorButton>
               );
             })}
           </Stack>
-          <ColorButton
-            onClick={() => setShowInputDetail(true)}
-            variant="contained"
-            sx={{ width: "100%", mt: "20px" }}
-          >
+          <ColorButton variant="contained" sx={{ width: "100%", mt: "20px" }}>
             Add +
           </ColorButton>
         </>
