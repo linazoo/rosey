@@ -36,12 +36,14 @@ export const StyledBox = styled(Box)({
 
 export const kitchenChores = [
   {
-    title: "Cleaning the fridge",
+    title: "Kitchen",
     frequency: "weekly",
+    description: "info about all that is kitchen stuff",
   },
   {
-    title: "throwing out old food",
+    title: "Garden",
     frequency: "daily",
+    description: "info about all that is kitchen stuff",
   },
 ];
 
@@ -53,60 +55,56 @@ export const Directory = () => {
 
   return (
     <React.Fragment>
-      {loading ? (
-        <h2>loading...</h2>
-      ) : (
-        <Container maxWidth="md">
-          <StyledBox>
-            <Typography
-              sx={{
-                mb: "20px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-              variant="h4"
-            >
-              {categories?.kitchen?.title}
-            </Typography>
-            {showInputDetail ? (
-              <InputDetail />
-            ) : (
-              <>
-                <Stack spacing={3}>
-                  {kitchenChores.map((chore) => {
-                    return (
-                      <ColorButton
-                        sx={{ justifyContent: "space-between" }}
-                        variant="contained"
-                      >
-                        <p>{chore.title}</p>
-                        <Box sx={{ display: "flex", alignItems: "center" }}>
-                          <Chip
-                            label={chore.frequency}
-                            variant="contained"
-                            sx={{ mr: 2 }}
-                          />
-                          <IconButton>
-                            <EditIcon onClick={() => setEditInput(true)} />
-                          </IconButton>
-                        </Box>
-                      </ColorButton>
-                    );
-                  })}
-                </Stack>
-                <ColorButton
-                  onClick={() => setShowInputDetail(true)}
-                  variant="contained"
-                  sx={{ width: "100%", mt: "20px" }}
-                >
-                  Add +
-                </ColorButton>
-              </>
-            )}
-          </StyledBox>
-        </Container>
-      )}
+      <Container maxWidth="md">
+        <StyledBox>
+          <Typography
+            sx={{
+              mb: "20px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+            variant="h4"
+          >
+            {categories?.kitchen?.title}
+          </Typography>
+          {showInputDetail ? (
+            <InputDetail />
+          ) : (
+            <>
+              <Stack spacing={3}>
+                {kitchenChores.map((chore) => {
+                  return (
+                    <ColorButton
+                      sx={{ justifyContent: "space-between" }}
+                      variant="contained"
+                    >
+                      <p>{chore.title}</p>
+                      <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <Chip
+                          label={chore.frequency}
+                          variant="contained"
+                          sx={{ mr: 2 }}
+                        />
+                        <IconButton>
+                          <EditIcon onClick={() => setEditInput(true)} />
+                        </IconButton>
+                      </Box>
+                    </ColorButton>
+                  );
+                })}
+              </Stack>
+              <ColorButton
+                onClick={() => setShowInputDetail(true)}
+                variant="contained"
+                sx={{ width: "100%", mt: "20px" }}
+              >
+                Add +
+              </ColorButton>
+            </>
+          )}
+        </StyledBox>
+      </Container>
     </React.Fragment>
   );
 };

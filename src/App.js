@@ -9,6 +9,9 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Directory from "./components/Directory";
 import EditDetail from "./components/EditDetail";
+import DetailPage from "./pages/DetailPage";
+import EditPage from "./pages/EditPage";
+import HomePage from "./pages/HomePage";
 
 const data = {
   loading: false,
@@ -43,9 +46,14 @@ const App = () => {
       <Box>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/directory" element={<Directory />} />
-          <Route path="/edit" element={<EditDetail />} />
+          {/* home page, edit page, and detail page  
+          /item/:id (detail page)
+          /item/:id/edit (edit page)
+
+          */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/item/:id" element={<DetailPage />} />
+          <Route path="/item/:id/edit" element={<EditPage />} />
         </Routes>
       </Box>
     </GlobalProvider>
