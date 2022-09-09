@@ -5,9 +5,11 @@ import { Route, Routes } from "react-router-dom";
 
 import { GlobalProvider } from "./contexts/global";
 
-import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import Directory from "./components/Directory";
+import DetailPage from "./pages/DetailPage";
+import EditPage from "./pages/EditPage";
+import HomePage from "./pages/HomePage";
+import AddPage from "./pages/AddPage";
 
 const data = {
   loading: false,
@@ -42,8 +44,16 @@ const App = () => {
       <Box>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/directory" element={<Directory />} />
+          {/* home page, edit page, and detail page  
+          /item/:id (detail page)
+          /item/:id/edit (edit page)
+          /new (add new)
+
+          */}
+          <Route data={data} path="/" element={<HomePage />} />
+          <Route path="/item/:id" element={<DetailPage />} />
+          <Route path="/item/:id/edit" element={<EditPage />} />
+          <Route path="/new" element={<AddPage />} />
         </Routes>
       </Box>
     </GlobalProvider>
