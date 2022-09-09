@@ -3,8 +3,13 @@ import { Typography } from "@mui/material";
 
 const IntroSection = () => {
   return (
-    <Typography variant="h5" display="flex" justifyContent="center">
-      Hello John!
+    <Typography
+      variant="h2"
+      display="flex"
+      justifyContent="center"
+      margin="30px"
+    >
+      Hello, User
     </Typography>
   );
 };

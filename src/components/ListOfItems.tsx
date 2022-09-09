@@ -31,7 +31,7 @@ export const ColorButton = styled(Button)(({ theme }) => ({
 export const StyledBox = styled(Box)({
   backgroundColor: "#dfdfdf",
   height: "100vh",
-  borderRadius: "42px",
+  borderRadius: "32px",
   padding: "50px",
 });
 
@@ -65,8 +65,10 @@ const ListOfItems = () => {
                   sx={{ justifyContent: "space-between" }}
                   variant="contained"
                 >
-                  <p>{item.title}</p>
-                  <p>{item.description}</p>
+                  <div className="list_item">
+                    <h2>{item.title}</h2>
+                    <p>{item.description}</p>
+                  </div>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Chip label={item.frequency} sx={{ mr: 2 }} />
                     <IconButton>

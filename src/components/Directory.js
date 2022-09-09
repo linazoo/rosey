@@ -13,7 +13,6 @@ import { styled } from "@mui/material/styles";
 import EditIcon from "@mui/icons-material/Edit";
 import GlobalContext from "../contexts/global";
 import InputDetail from "./InputDetail";
-import EditDetail from "./EditDetail";
 
 export const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[200]),
