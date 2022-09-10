@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorButton } from "./Directory";
+import { ColorButton } from "./commonStyles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Box } from "@mui/material";
@@ -7,9 +7,12 @@ import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import { StyledBox } from "./commonStyles";
 import { Stack } from "@mui/system";
+import { useTheme } from "@mui/material";
 
 const InputDetail = () => {
   const [value, setValue] = React.useState(false);
+
+  let theme = useTheme();
 
   const handleChange = (event: React.SyntheticEvent, newValue: boolean) => {
     setValue(newValue);
@@ -46,7 +49,11 @@ const InputDetail = () => {
           <Tab label="yearly" />
         </Tabs>
 
-        <ColorButton variant="contained" sx={{ width: "100%", mt: "20px" }}>
+        <ColorButton
+          theme={theme}
+          variant="contained"
+          sx={{ width: "100%", mt: "20px" }}
+        >
           Confirm
         </ColorButton>
       </Stack>

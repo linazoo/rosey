@@ -1,21 +1,11 @@
 import React, { useContext } from "react";
-// import InputDetail from "./InputDetail";
 import { StyledBox } from "./commonStyles";
 
-import {
-  Container,
-  Box,
-  Stack,
-  Typography,
-  Button,
-  Chip,
-  IconButton,
-} from "@mui/material";
+import { Container, Box, Stack, Button, Chip, IconButton } from "@mui/material";
 
 import { purple, grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 import EditIcon from "@mui/icons-material/Edit";
-import GlobalContext from "../contexts/global";
 
 export const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[200]),
@@ -35,19 +25,11 @@ interface Item {
   description: string;
 }
 
-// interface Task {
-//   title: string;
-//   description: string;
-// }
-
 interface ListOfItemsProps {
   items: Array<Item>;
 }
 
 const ListOfItems = ({ items }: ListOfItemsProps) => {
-  // const [showInputDetail, setShowInputDetail] = React.useState(false);
-  // const [editInput, setEditInput] = React.useState(false);
-
   return (
     <Container maxWidth="md">
       <StyledBox>
