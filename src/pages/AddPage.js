@@ -1,11 +1,12 @@
 import React from "react";
 import InputDetail from "../components/InputDetail";
+import { Container } from "@mui/system";
 
 const AddPage = () => {
   return (
-    <div>
+    <Container maxWidth="md">
       <InputDetail />
-    </div>
+    </Container>
   );
 };
 
