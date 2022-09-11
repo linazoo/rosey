@@ -1,11 +1,8 @@
 import React from "react";
-import { ColorButton } from "./commonStyles";
+import { ColorButton, StyledBox } from "./commonStyles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Box } from "@mui/material";
-import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
-import { StyledBox } from "./commonStyles";
 import { Stack } from "@mui/system";
 import { useTheme } from "@mui/material";
 

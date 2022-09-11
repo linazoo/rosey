@@ -25,8 +25,6 @@ export const homeCategories = [
 ];
 
 const App = () => {
-  // TODO: make a context for our global state
-  // we can make a context provider here and have the value be something like:
   const [state, setState] = React.useState({
     categories: homeCategories,
   });
@@ -36,12 +34,6 @@ const App = () => {
       <Box>
         <Navbar />
         <Routes>
-          {/* home page, edit page, and detail page  
-          /item/:id (detail page)
-          /item/:id/edit (edit page)
-          /new (add new)
-
-          */}
           <Route path="/" element={<HomePage />} />
           <Route path="/item/:id" element={<DetailPage />} />
           <Route path="/item/:id/edit" element={<EditPage />} />
