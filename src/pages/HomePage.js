@@ -4,11 +4,15 @@ import IntroSection from "../components/IntroSection";
 import ListOfItems from "../components/ListOfItems";
 import Search from "../components/Search";
 import { Box } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const { state } = useContext(GlobalContext);
   const { categories } = state;
-
+  let navigate = useNavigate();
+  const handleClick = (id) => {
+    navigate(`/item/${id}`);
+  };
   return (
     <div>
       <IntroSection />
@@ -23,7 +27,7 @@ const HomePage = () => {
       >
         <Search items={categories} sx={{ maxWidth: "800px" }} />
       </Box>
-      <ListOfItems items={categories} />
+      <ListOfItems items={categories} onClick={handleClick} />
     </div>
   );
 };

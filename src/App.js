@@ -10,6 +10,7 @@ import DetailPage from "./pages/DetailPage";
 import EditPage from "./pages/EditPage";
 import HomePage from "./pages/HomePage";
 import AddPage from "./pages/AddPage";
+import ItemDetail from "./pages/ItemDetail";
 
 export const homeCategories = [
   {
@@ -17,10 +18,11 @@ export const homeCategories = [
     frequency: "weekly",
     description: "info about all that is kitchen stuff",
     id: 1,
-    task: [
+    tasks: [
       {
         title: "How to do the dishes",
         description: "Info about how to do the dishes",
+        id: 1,
       },
     ],
   },
@@ -29,10 +31,11 @@ export const homeCategories = [
     frequency: "daily",
     description: "info about all that is kitchen stuff",
     id: 2,
-    task: [
+    tasks: [
       {
         title: "How to set up the garden",
         description: "Info about how to do set up the garden",
+        id: 2,
       },
     ],
   },
@@ -50,6 +53,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/item/:id" element={<DetailPage />} />
+          <Route path="/item/:id/detail/:taskId" element={<ItemDetail />} />
           <Route path="/item/:id/edit" element={<EditPage />} />
           <Route path="/new" element={<AddPage />} />
         </Routes>

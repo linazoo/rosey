@@ -29,13 +29,14 @@ interface Item {
 
 interface ListOfItemsProps {
   items: Array<Item>;
+  onClick: Function;
 }
 
-const ListOfItems = ({ items }: ListOfItemsProps) => {
+const ListOfItems = ({ items, onClick }: ListOfItemsProps) => {
   let navigate = useNavigate();
 
   const handleClick = (id: number) => {
-    navigate(`/item/${id}`);
+    onClick(id);
   };
 
   return (
