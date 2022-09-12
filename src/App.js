@@ -16,11 +16,25 @@ export const homeCategories = [
     title: "Kitchen",
     frequency: "weekly",
     description: "info about all that is kitchen stuff",
+    id: 1,
+    task: [
+      {
+        title: "How to do the dishes",
+        description: "Info about how to do the dishes",
+      },
+    ],
   },
   {
     title: "Garden",
     frequency: "daily",
     description: "info about all that is kitchen stuff",
+    id: 2,
+    task: [
+      {
+        title: "How to set up the garden",
+        description: "Info about how to do set up the garden",
+      },
+    ],
   },
 ];
 

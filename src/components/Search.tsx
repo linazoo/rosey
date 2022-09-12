@@ -12,11 +12,13 @@ interface Item {
 interface SearchProps {
   items: Array<Item>;
   width: string;
+  sx: any;
 }
 
-export function Search({ items, width }: SearchProps) {
+export function Search({ items, sx }: SearchProps) {
   return (
     <Autocomplete
+      sx={sx}
       fullWidth
       freeSolo
       id="free-solo-2-demo"

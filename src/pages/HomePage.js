@@ -12,8 +12,16 @@ const HomePage = () => {
   return (
     <div>
       <IntroSection />
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Search items={categories} />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          mb: "40px",
+          pl: 2,
+          pr: 2,
+        }}
+      >
+        <Search items={categories} sx={{ maxWidth: "800px" }} />
       </Box>
       <ListOfItems items={categories} />
     </div>
