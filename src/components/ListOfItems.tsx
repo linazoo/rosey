@@ -6,6 +6,7 @@ import { Container, Box, Stack, Button, Chip, IconButton } from "@mui/material";
 import { purple, grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 import EditIcon from "@mui/icons-material/Edit";
+import { useNavigate } from "react-router-dom";
 
 export const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[200]),
@@ -23,13 +24,21 @@ interface Item {
   title: string;
   frequency?: string;
   description: string;
+  id: number;
 }
 
 interface ListOfItemsProps {
   items: Array<Item>;
+  onClick: Function;
 }
 
-const ListOfItems = ({ items }: ListOfItemsProps) => {
+const ListOfItems = ({ items, onClick }: ListOfItemsProps) => {
+  let navigate = useNavigate();
+
+  const handleClick = (id: number) => {
+    onClick(id);
+  };
+
   return (
     <Container maxWidth="md">
       <StyledBox>
@@ -38,6 +47,8 @@ const ListOfItems = ({ items }: ListOfItemsProps) => {
             {items.map((item) => {
               return (
                 <ColorButton
+                  onClick={() => handleClick(item.id)}
+                  key={item.title}
                   sx={{ justifyContent: "space-between" }}
                   variant="contained"
                 >
@@ -50,9 +61,7 @@ const ListOfItems = ({ items }: ListOfItemsProps) => {
                       <Chip label={item.frequency} sx={{ mr: 2 }} />
                     ) : null}
 
-                    <IconButton>
-                      <EditIcon />
-                    </IconButton>
+                    <EditIcon />
                   </Box>
                 </ColorButton>
               );
