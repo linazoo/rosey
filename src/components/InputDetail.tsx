@@ -6,7 +6,13 @@ import TextField from "@mui/material/TextField";
 import { Stack } from "@mui/system";
 import { useTheme } from "@mui/material";
 
-const InputDetail = () => {
+interface Props {
+  addTask: string;
+  setAddTask: React.Dispatch<React.SetStateAction<string>>;
+  handleAdd: (e: React.FormEvent) => void;
+}
+
+const InputDetail: React.FC<Props> = ({ addTask, setAddTask, handleAdd }) => {
   const [value, setValue] = React.useState(false);
 
   let theme = useTheme();
@@ -23,6 +29,8 @@ const InputDetail = () => {
           label="Title"
           multiline
           variant="outlined"
+          value={addTask}
+          onChange={(e) => setAddTask(e.target.value)}
         />
         <TextField
           id="standard-multiline-static"
@@ -47,6 +55,7 @@ const InputDetail = () => {
         </Tabs>
 
         <ColorButton
+          onSubmit={handleAdd}
           theme={theme}
           variant="contained"
           sx={{ width: "100%", mt: "20px" }}
