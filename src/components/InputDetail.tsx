@@ -11,14 +11,17 @@ interface Props {
   setAddTask: React.Dispatch<React.SetStateAction<string>>;
   handleAdd: (e: React.FormEvent) => void;
 }
+const frequencies = ["daily", "weekly", "monthly", "yearly"];
 
 const InputDetail: React.FC<Props> = ({ addTask, setAddTask, handleAdd }) => {
-  const [value, setValue] = React.useState(false);
+  const [value, setValue] = React.useState(0);
 
   let theme = useTheme();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: boolean) => {
-    setValue(newValue);
+  const handleChange = (event: React.SyntheticEvent, selectedIndex: number) => {
+    setValue(selectedIndex);
+    const frequency = frequencies[selectedIndex];
+    console.log({ frequency });
   };
 
   return (
@@ -48,10 +51,13 @@ const InputDetail: React.FC<Props> = ({ addTask, setAddTask, handleAdd }) => {
           value={value}
           aria-label="Tabs where each tab needs to be selected manually"
         >
-          <Tab label="daily" />
+          {frequencies.map((item) => (
+            <Tab label={item} />
+          ))}
+          {/* <Tab label="daily" />
           <Tab label="weekly" />
           <Tab label="monthly" />
-          <Tab label="yearly" />
+          <Tab label="yearly" /> */}
         </Tabs>
 
         <ColorButton

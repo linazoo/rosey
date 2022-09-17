@@ -12,6 +12,11 @@ import HomePage from "./pages/HomePage";
 import AddPage from "./pages/AddPage";
 import ItemDetail from "./pages/ItemDetail";
 
+export interface Category {
+  title: string;
+  frequency: string;
+}
+
 export const homeCategories = [
   {
     title: "Kitchen",
