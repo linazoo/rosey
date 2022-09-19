@@ -10,7 +10,7 @@ import DetailPage from "./pages/DetailPage";
 import EditPage from "./pages/EditPage";
 import HomePage from "./pages/HomePage";
 import AddPage from "./pages/AddPage";
-import ItemDetail from "./pages/ItemDetail";
+import ItemDetail from "./pages/itemDetail";
 
 export interface Category {
   title: string;
