@@ -17,7 +17,7 @@ const InputDetail: React.FC<AddTask> = ({ addTask, setAddTask, handleAdd }) => {
   const handleChange = (event: React.SyntheticEvent, selectedIndex: number) => {
     setValue(selectedIndex);
     const frequency = frequencies[selectedIndex];
-    console.log({ frequency });
+    // console.log({ frequency });
   };
 
   return (
@@ -48,12 +48,8 @@ const InputDetail: React.FC<AddTask> = ({ addTask, setAddTask, handleAdd }) => {
           aria-label="Tabs where each tab needs to be selected manually"
         >
           {frequencies.map((item) => (
-            <Tab label={item} />
+            <Tab key={item} label={item} />
           ))}
-          {/* <Tab label="daily" />
-          <Tab label="weekly" />
-          <Tab label="monthly" />
-          <Tab label="yearly" /> */}
         </Tabs>
 
         <ColorButton

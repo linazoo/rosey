@@ -2,7 +2,6 @@ import React from "react";
 import InputDetail from "../components/InputDetail";
 import { Container } from "@mui/system";
 import { AddTask } from "../components/model";
-import { TaskSharp } from "@mui/icons-material";
 
 const AddPage: React.FC = () => {
   const [addTask, setAddTask] = React.useState<string>("");
@@ -13,8 +12,14 @@ const AddPage: React.FC = () => {
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
-    // do I add the new task to an existing task here?
+    // question: addpage > to add a new kitchen page
+    // addtask > to add a new task within that page
+    //Think this is where I'm getting confused??
+    // should i think about the 'flow' in terms of 1. adding a 'page' by pressing + but when we go to the subpage (i.e. kitchen) and I press + within that page it should take me to add a subpage?
 
+    if (addTasks) {
+      setAddTask(addTask);
+    }
     // update global state with the new task
     // you'll have useState's for title, description and frequency
     // you'll wanna use the global state setter (from context) to add this new object to global state
