@@ -2,16 +2,18 @@ import React from "react";
 import InputDetail from "../components/InputDetail";
 import { Container } from "@mui/system";
 import { AddTask } from "../components/model";
+import { TaskSharp } from "@mui/icons-material";
 
 const AddPage: React.FC = () => {
   const [addTask, setAddTask] = React.useState<string>("");
-  // const [taskTitle, setTaskTitle] = React.useState<AddTask[]>([]);
+  const [addTasks, setAddTasks] = React.useState<AddTask[]>([]);
   const [taskTitle, setTaskTitle] = React.useState<string>("");
   const [taskDescription, setTaskDescription] = React.useState<string>("");
   const [taskFrequency, setTaskFrequency] = React.useState<string>("");
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
+    // do I add the new task to an existing task here?
 
     // update global state with the new task
     // you'll have useState's for title, description and frequency

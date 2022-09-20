@@ -5,18 +5,11 @@ import Tab from "@mui/material/Tab";
 import TextField from "@mui/material/TextField";
 import { Stack } from "@mui/system";
 import { useTheme } from "@mui/material";
+import { AddTask } from "./model";
 
-interface Props {
-  addTask: string;
-  setAddTask: React.Dispatch<React.SetStateAction<string>>;
-  handleAdd: (e: React.FormEvent) => void;
-  setTaskTitle: React.Dispatch<React.SetStateAction<string>>;
-  setTaskDescription: React.Dispatch<React.SetStateAction<string>>;
-  setTaskFrequency: React.Dispatch<React.SetStateAction<string>>;
-}
 const frequencies = ["daily", "weekly", "monthly", "yearly"];
 
-const InputDetail: React.FC<Props> = ({ addTask, setAddTask, handleAdd }) => {
+const InputDetail: React.FC<AddTask> = ({ addTask, setAddTask, handleAdd }) => {
   const [value, setValue] = React.useState(0);
 
   let theme = useTheme();
