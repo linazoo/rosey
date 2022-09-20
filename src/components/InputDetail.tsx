@@ -9,7 +9,13 @@ import { AddTask } from "./model";
 
 const frequencies = ["daily", "weekly", "monthly", "yearly"];
 
-const InputDetail: React.FC<AddTask> = ({ addTask, setAddTask, handleAdd }) => {
+const InputDetail: React.FC<AddTask> = ({
+  setAddTask,
+  handleAdd,
+  setTaskTitle,
+  setTaskDescription,
+  setTaskFrequency,
+}) => {
   const [value, setValue] = React.useState(0);
 
   let theme = useTheme();
@@ -17,7 +23,7 @@ const InputDetail: React.FC<AddTask> = ({ addTask, setAddTask, handleAdd }) => {
   const handleChange = (event: React.SyntheticEvent, selectedIndex: number) => {
     setValue(selectedIndex);
     const frequency = frequencies[selectedIndex];
-    // console.log({ frequency });
+    setTaskFrequency(frequency);
   };
 
   return (
@@ -28,8 +34,7 @@ const InputDetail: React.FC<AddTask> = ({ addTask, setAddTask, handleAdd }) => {
           label="Title"
           multiline
           variant="outlined"
-          value={addTask}
-          onChange={(e) => setAddTask(e.target.value)}
+          onChange={(e) => setTaskTitle(e.target.value)}
         />
         <TextField
           id="standard-multiline-static"
@@ -38,6 +43,7 @@ const InputDetail: React.FC<AddTask> = ({ addTask, setAddTask, handleAdd }) => {
           rows={4}
           defaultValue=""
           variant="outlined"
+          onChange={(e) => setTaskDescription(e.target.value)}
         />
 
         <Tabs
