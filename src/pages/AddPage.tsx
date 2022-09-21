@@ -13,6 +13,8 @@ const AddPage: React.FC = () => {
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
     // this is giving me a type error, and when I try to update the type it says the title, descr, frequ don't exist hmm
+
+    // @ts-ignore
     // setAddTask({
     //   title: taskTitle,
     //   description: taskDescription,
