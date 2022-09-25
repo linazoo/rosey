@@ -20,7 +20,7 @@ const Navbar = () => (
     <Link to="/" style={{ textDecoration: "none" }}>
       <AppLogo />
     </Link>
-    <Link to="/new">
+    <Link to="/">
       <AddIcon fontSize="large" />
     </Link>
   </Stack>

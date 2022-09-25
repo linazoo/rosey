@@ -1,25 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import InputDetail from "../components/InputDetail";
 import { Container } from "@mui/system";
-import { AddTask } from "../components/model";
+import GlobalContext from "../contexts/global";
+import { useNavigate } from "react-router-dom";
 
 const AddPage: React.FC = () => {
-  const [addTask, setAddTask] = React.useState<string>("");
-  const [addTasks, setAddTasks] = React.useState<AddTask[]>([]);
+  const { state, setState } = useContext(GlobalContext);
   const [taskTitle, setTaskTitle] = React.useState<string>("");
   const [taskDescription, setTaskDescription] = React.useState<string>("");
   const [taskFrequency, setTaskFrequency] = React.useState<string>("");
+  const navigate = useNavigate();
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
-    // this is giving me a type error, and when I try to update the type it says the title, descr, frequ don't exist hmm
+    const newTask = {
+      title: taskTitle,
+      description: taskDescription,
+      frequency: taskFrequency,
+      id: Date.now(),
+    };
 
-    // @ts-ignore
-    // setAddTask({
-    //   title: taskTitle,
-    //   description: taskDescription,
-    //   frequency: taskFrequency,
-    // });
+    setState({ categories: [...state.categories, newTask] });
+    navigate("/");
   };
 
   return (
@@ -28,8 +30,6 @@ const AddPage: React.FC = () => {
         setTaskFrequency={setTaskFrequency}
         setTaskDescription={setTaskDescription}
         setTaskTitle={setTaskTitle}
-        addTask={addTask}
-        setAddTask={setAddTask}
         handleAdd={handleAdd}
       />
     </Container>

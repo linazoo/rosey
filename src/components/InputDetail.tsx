@@ -10,7 +10,6 @@ import { AddTask } from "./model";
 const frequencies = ["daily", "weekly", "monthly", "yearly"];
 
 const InputDetail: React.FC<AddTask> = ({
-  setAddTask,
   handleAdd,
   setTaskTitle,
   setTaskDescription,
@@ -28,45 +27,47 @@ const InputDetail: React.FC<AddTask> = ({
 
   return (
     <StyledBox>
-      <Stack sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-        <TextField
-          id="standard-textarea"
-          label="Title"
-          multiline
-          variant="outlined"
-          onChange={(e) => setTaskTitle(e.target.value)}
-        />
-        <TextField
-          id="standard-multiline-static"
-          label="Description"
-          multiline
-          rows={4}
-          defaultValue=""
-          variant="outlined"
-          onChange={(e) => setTaskDescription(e.target.value)}
-        />
+      <form onSubmit={handleAdd}>
+        <Stack sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <TextField
+            id="standard-textarea"
+            label="Title"
+            multiline
+            variant="outlined"
+            onChange={(e) => setTaskTitle(e.target.value)}
+          />
+          <TextField
+            id="standard-multiline-static"
+            label="Description"
+            multiline
+            rows={4}
+            defaultValue=""
+            variant="outlined"
+            onChange={(e) => setTaskDescription(e.target.value)}
+          />
 
-        <Tabs
-          centered
-          variant="fullWidth"
-          onChange={handleChange}
-          value={value}
-          aria-label="Tabs where each tab needs to be selected manually"
-        >
-          {frequencies.map((item) => (
-            <Tab key={item} label={item} />
-          ))}
-        </Tabs>
+          <Tabs
+            centered
+            variant="fullWidth"
+            onChange={handleChange}
+            value={value}
+            aria-label="Tabs where each tab needs to be selected manually"
+          >
+            {frequencies.map((item) => (
+              <Tab key={item} label={item} />
+            ))}
+          </Tabs>
 
-        <ColorButton
-          onSubmit={handleAdd}
-          theme={theme}
-          variant="contained"
-          sx={{ width: "100%", mt: "20px" }}
-        >
-          Confirm
-        </ColorButton>
-      </Stack>
+          <ColorButton
+            type={"submit"}
+            theme={theme}
+            variant="contained"
+            sx={{ width: "100%", mt: "20px" }}
+          >
+            Confirm
+          </ColorButton>
+        </Stack>
+      </form>
     </StyledBox>
   );
 };
