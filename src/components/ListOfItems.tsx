@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { StyledBox } from "./commonStyles";
+import { Link } from "react-router-dom";
 
 import { Container, Box, Stack, Button, Chip, IconButton } from "@mui/material";
 
@@ -67,7 +68,13 @@ const ListOfItems = ({ items, onClick }: ListOfItemsProps) => {
               );
             })}
           </Stack>
-          <ColorButton variant="contained" sx={{ width: "100%", mt: "20px" }}>
+          <ColorButton
+            //@ts-ignore
+            component={Link}
+            to="/new"
+            variant="contained"
+            sx={{ width: "100%", mt: "20px" }}
+          >
             Add +
           </ColorButton>
         </>

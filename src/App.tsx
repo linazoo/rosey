@@ -22,12 +22,13 @@ export const homeCategories = [
     title: "Kitchen",
     frequency: "weekly",
     description: "info about all that is kitchen stuff",
-    id: 1,
+    id: 0,
     tasks: [
       {
         title: "How to do the dishes",
         description: "Info about how to do the dishes",
-        id: 1,
+        id: 0,
+        frequency: "weekly",
       },
     ],
   },
@@ -35,12 +36,13 @@ export const homeCategories = [
     title: "Garden",
     frequency: "daily",
     description: "info about all that is kitchen stuff",
-    id: 2,
+    id: 1,
     tasks: [
       {
         title: "How to set up the garden",
         description: "Info about how to do set up the garden",
-        id: 2,
+        id: 1,
+        frequency: "weekly",
       },
     ],
   },

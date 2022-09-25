@@ -1,17 +1,18 @@
 import React from "react";
 import InputDetail from "./InputDetail";
+import { AddTask } from "./model";
 
-interface Props {
-  addTask: string;
-  setAddTask: React.Dispatch<React.SetStateAction<string>>;
-  handleAdd: (e: React.FormEvent) => void;
-}
-
-const EditDetail: React.FC<Props> = ({ addTask, setAddTask, handleAdd }) => {
+const EditDetail: React.FC<AddTask> = ({
+  handleAdd,
+  setTaskTitle,
+  setTaskDescription,
+  setTaskFrequency,
+}) => {
   return (
     <InputDetail
-      addTask={addTask}
-      setAddTask={setAddTask}
+      setTaskFrequency={setTaskFrequency}
+      setTaskDescription={setTaskDescription}
+      setTaskTitle={setTaskTitle}
       handleAdd={handleAdd}
     />
   );

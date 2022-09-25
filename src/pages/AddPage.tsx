@@ -1,27 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import InputDetail from "../components/InputDetail";
 import { Container } from "@mui/system";
-import { AddTask } from "../components/model";
+import GlobalContext from "../contexts/global";
+import { useNavigate } from "react-router-dom";
 
 const AddPage: React.FC = () => {
-  const [addTask, setAddTask] = React.useState<string>("");
-  const [taskTitle, setTaskTitle] = React.useState<AddTask[]>([]);
+  const { state, setState } = useContext(GlobalContext);
+  const [taskTitle, setTaskTitle] = React.useState<string>("");
+  const [taskDescription, setTaskDescription] = React.useState<string>("");
+  const [taskFrequency, setTaskFrequency] = React.useState<string>("");
+  const navigate = useNavigate();
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
-    // update global state with the new task
-    // you'll have useState's for title, description and frequency
-    // you'll wanna use the global state setter (from context) to add this new object to global state
-    // the new object you're adding will look like:
-    // { title: 'new title', description: 'new description', frequency: 'weekly'}
+    const newTask = {
+      title: taskTitle,
+      description: taskDescription,
+      frequency: taskFrequency,
+      id: Date.now(),
+    };
+
+    setState({ categories: [...state.categories, newTask] });
+    navigate("/");
   };
 
-  console.log({ addTask });
   return (
     <Container maxWidth="md">
       <InputDetail
-        addTask={addTask}
-        setAddTask={setAddTask}
+        setTaskFrequency={setTaskFrequency}
+        setTaskDescription={setTaskDescription}
+        setTaskTitle={setTaskTitle}
         handleAdd={handleAdd}
       />
     </Container>
