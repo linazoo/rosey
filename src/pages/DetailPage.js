@@ -2,7 +2,10 @@ import React, { useContext } from "react";
 import GlobalContext from "../contexts/global";
 import { useParams } from "react-router-dom";
 import ListOfItems from "../components/ListOfItems";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import Button from "../components/Button";
+import { Container } from "@mui/system";
+import { StyledBox } from "../components/commonStyles";
 
 const DetailPage = () => {
   const { state } = useContext(GlobalContext);
@@ -17,7 +20,23 @@ const DetailPage = () => {
     navigate(`/item/${id}/detail/${taskId}`);
   };
 
-  return <ListOfItems onClick={handleClick} items={selectedCategory.tasks} />;
+  return (
+    <Container maxWidth="md">
+      <StyledBox>
+        <ListOfItems onClick={handleClick} items={selectedCategory.tasks} />
+
+        <Button
+          //@ts-ignore
+          component={Link}
+          to="new"
+          variant="contained"
+          sx={{ width: "100%", mt: "20px" }}
+        >
+          Add +
+        </Button>
+      </StyledBox>
+    </Container>
+  );
 };
 
 export default DetailPage;

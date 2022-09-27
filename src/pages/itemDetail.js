@@ -27,7 +27,7 @@ function Types() {
         Everything you need to know about washing clothes
       </Typography>
 
-      <Typography variant="body2" gutterBottom>
+      <Typography component={"span"} gutterBottom>
         <ul>
           <li>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non

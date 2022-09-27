@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { StyledBox } from "./commonStyles";
+
 import { Link } from "react-router-dom";
 
 import { Container, Box, Stack, Button, Chip, IconButton } from "@mui/material";
+import Alert from "@mui/material/Alert";
 
 import { purple, grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
@@ -41,45 +42,40 @@ const ListOfItems = ({ items, onClick }: ListOfItemsProps) => {
   };
 
   return (
-    <Container maxWidth="md">
-      <StyledBox>
-        <>
-          <Stack spacing={3}>
-            {items.map((item) => {
-              return (
-                <ColorButton
-                  onClick={() => handleClick(item.id)}
-                  key={item.title}
-                  sx={{ justifyContent: "space-between" }}
-                  variant="contained"
-                >
-                  <div className="list_item">
-                    <h2>{item.title}</h2>
-                    <p>{item.description}</p>
-                  </div>
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    {item.frequency ? (
-                      <Chip label={item.frequency} sx={{ mr: 2 }} />
-                    ) : null}
+    <>
+      <Stack spacing={3}>
+        {items ? (
+          items.map((item) => {
+            return (
+              <ColorButton
+                onClick={() => handleClick(item.id)}
+                key={item.title}
+                sx={{ justifyContent: "space-between" }}
+                variant="contained"
+              >
+                <div className="list_item">
+                  <h2>{item.title}</h2>
+                  <p>{item.description}</p>
+                </div>
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  {item.frequency ? (
+                    <Chip label={item.frequency} sx={{ mr: 2 }} />
+                  ) : null}
 
-                    <EditIcon />
-                  </Box>
-                </ColorButton>
-              );
-            })}
-          </Stack>
-          <ColorButton
-            //@ts-ignore
-            component={Link}
-            to="/new"
-            variant="contained"
-            sx={{ width: "100%", mt: "20px" }}
-          >
-            Add +
-          </ColorButton>
-        </>
-      </StyledBox>
-    </Container>
+                  <EditIcon />
+                </Box>
+              </ColorButton>
+            );
+          })
+        ) : (
+          <>
+            <Alert severity="info">
+              There are no How to's for this category yet, add some!
+            </Alert>
+          </>
+        )}
+      </Stack>
+    </>
   );
 };
 
