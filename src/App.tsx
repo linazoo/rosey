@@ -60,11 +60,11 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/item/:id" element={<DetailPage />} />
-          <Route path="/item/:id/new" element={<NewTodoPage />} />
-          <Route path="/item/:id/detail/:taskId" element={<ItemDetail />} />
-          <Route path="/item/:id/edit" element={<EditPage />} />
           <Route path="/new" element={<AddPage />} />
+          <Route path="/item/:id" element={<DetailPage />} />
+          <Route path="/item/:id/edit" element={<EditPage />} />
+          <Route path="/item/:id/detail/:taskId" element={<ItemDetail />} />
+          <Route path="/item/:id/new" element={<NewTodoPage />} />
           <Route path="/newtask" element={<AddPage />} />
         </Routes>
       </Box>
