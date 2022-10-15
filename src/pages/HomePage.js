@@ -12,11 +12,19 @@ import { StyledBox } from "../components/commonStyles";
 
 const HomePage = () => {
   const { state } = useContext(GlobalContext);
-  const { categories } = state;
+  const { categories} = state;
+
   let navigate = useNavigate();
+
   const handleClick = (id) => {
     navigate(`/item/${id}`);
   };
+
+  // Now that categories is an object, we get an array of all the categy names
+  const categoryNames = Object.keys(categories);
+  // then create an array of the category objects to pass into the components that were expecting arrays
+  const arrayOfCategories = categoryNames.map(name => categories[name])
+
   return (
     <div>
       <IntroSection />
@@ -29,11 +37,11 @@ const HomePage = () => {
           pr: 2,
         }}
       >
-        <Search items={categories} sx={{ maxWidth: "800px" }} />
+        <Search items={arrayOfCategories} sx={{ maxWidth: "800px" }} />
       </Box>
       <Container maxWidth="md">
         <StyledBox>
-          <ListOfItems items={categories} onClick={handleClick} />
+          <ListOfItems items={arrayOfCategories} onClick={handleClick} />
           <Button
             //@ts-ignore
             component={Link}
