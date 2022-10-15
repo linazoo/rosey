@@ -20,10 +20,10 @@ const HomePage = () => {
     navigate(`/item/${id}`);
   };
 
-  // Now that categories is an object, we get an array of all the categy names
-  const categoryNames = Object.keys(categories);
+  // Now that categories is an object, we get an array of all the category ids
+  const categoryIds = Object.keys(categories);
   // then create an array of the category objects to pass into the components that were expecting arrays
-  const arrayOfCategories = categoryNames.map(name => categories[name])
+  const arrayOfCategories = categoryIds.map(id => categories[id])
 
   return (
     <div>

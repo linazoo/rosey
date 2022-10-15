@@ -11,10 +11,10 @@ const DetailPage = () => {
   const { state } = useContext(GlobalContext);
   const { id } = useParams();
   const { categories } = state;
-
+  console.log({categories})
   let navigate = useNavigate();
 
-  const selectedCategory = categories.find((item) => item.id == id);
+  const selectedCategory = categories[id];
 
   const handleClick = (taskId) => {
     navigate(`/item/${id}/detail/${taskId}`);

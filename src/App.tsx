@@ -43,7 +43,7 @@ export interface Category {
 
 export interface AppState {
   user: User;
-  categories: {[key: string]: Category}
+  categories: {[key: number]: Category}
 }
 
 export const defaultState = {
@@ -53,7 +53,7 @@ export const defaultState = {
     avatar: "path/to/src.jpeg",
   },
   categories: {
-    kitchen: {
+    0: {
       id: 0,
       title: "Kitchen",
       frequency: "weekly",
@@ -67,7 +67,7 @@ export const defaultState = {
         },
       ],
     },
-    garden: {
+    1: {
       id: 1,
       title: "Garden",
       frequency: "daily",
