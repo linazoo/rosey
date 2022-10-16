@@ -35,7 +35,6 @@ interface ListOfItemsProps {
 }
 
 const ListOfItems = ({ items, onClick }: ListOfItemsProps) => {
-  let navigate = useNavigate();
 
   const handleClick = (id: number) => {
     onClick(id);

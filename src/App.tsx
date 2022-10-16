@@ -13,46 +13,81 @@ import AddPage from "./pages/AddPage";
 import NewTodoPage from "./pages/NewTodoPage";
 import ItemDetail from "./pages/itemDetail";
 
+export enum Frequency {
+  Daily = "daily",
+  Weekly = "weekly",
+  Monthly = "monthly",
+  Yearly = "yearly",
+};
+
+export type Task = {
+  id: number;
+  title: string;
+  description: string;
+  frequency: Frequency;
+};
+
+export interface User {
+  name: string;
+  email: string;
+  avatar: string;
+};
+
 export interface Category {
+  id: number;
   title: string;
   frequency: string;
+  description: string;
+  tasks: Array<Task>;
+};
+
+export interface AppState {
+  user: User;
+  categories: {[key: number]: Category}
 }
 
-export const homeCategories = [
-  {
-    title: "Kitchen",
-    frequency: "weekly",
-    description: "info about all that is kitchen stuff",
-    id: 0,
-    tasks: [
-      {
-        title: "How to do the dishes",
-        description: "Info about how to do the dishes",
-        id: 0,
-        frequency: "weekly",
-      },
-    ],
+export const defaultState = {
+  user: {
+    name: "Lina Zoo",
+    email: "lina@test.com",
+    avatar: "path/to/src.jpeg",
   },
-  {
-    title: "Garden",
-    frequency: "daily",
-    description: "info about all that is kitchen stuff",
-    id: 1,
-    tasks: [
-      {
-        title: "How to set up the garden",
-        description: "Info about how to do set up the garden",
-        id: 1,
-        frequency: "weekly",
-      },
-    ],
+  categories: {
+    0: {
+      id: 0,
+      title: "Kitchen",
+      frequency: "weekly",
+      description: "info about all that is kitchen stuff",
+      tasks: [
+        {
+          id: 0,
+          title: "How to do the dishes",
+          description: "Info about how to do the dishes",
+          frequency: "weekly",
+        },
+      ],
+    },
+    1: {
+      id: 1,
+      title: "Garden",
+      frequency: "daily",
+      description: "info about all that is kitchen stuff",
+      tasks: [
+        {
+          id: 1,
+          title: "How to set up the garden",
+          description: "Info about how to do set up the garden",
+          frequency: "weekly",
+        },
+      ],
+    },
   },
-];
+};
+
+
 
 const App = () => {
-  const [state, setState] = React.useState({
-    categories: homeCategories,
-  });
+  const [state, setState] = React.useState(defaultState);
 
   return (
     <GlobalProvider value={{ state, setState }}>

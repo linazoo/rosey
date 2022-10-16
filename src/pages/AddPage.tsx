@@ -13,14 +13,19 @@ const AddPage: React.FC = () => {
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
-    const newTask = {
+
+    const newCategory = {
       title: taskTitle,
       description: taskDescription,
       frequency: taskFrequency,
       id: Date.now(),
+      tasks: [],
     };
 
-    setState({ categories: [...state.categories, newTask] });
+    setState({ ...state, categories: {
+      ...state.categories,
+      [newCategory.id]: newCategory,
+    } });
     navigate("/");
   };
 
